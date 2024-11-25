@@ -3,6 +3,12 @@ import Home from "./Home.jsx"
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
 import Services from "./Services.jsx"
 import RootLayout from "./RootLayout.jsx"
+import ServicesLayout from "./ServicesLayout.jsx"
+import GeneralServices from "./GeneralServices.jsx"
+import PrivateServices from "./PrivateServices.jsx"
+import NotFoundPage from "./NotFoundPage.jsx"
+import JobsLayout from "./JobsLayout.jsx"
+import Jobs, { loader } from "./Jobs.jsx"
 
 
 function App() {
@@ -19,10 +25,30 @@ function App() {
           element={<About />}
           />
 
+          {/* Services Nested Route */}
+          <Route path="services" element={<ServicesLayout />}>
+            <Route 
+            path="general"
+            element={<GeneralServices />}
+            />
+
+            <Route 
+            path="private"
+            element={<PrivateServices />}
+            />
+          </Route>
+          {/* End of Services Nested Route */}
+
           <Route 
-          path="services"
-          element={<Services />}
-          />
+            path="*"
+            element={<NotFoundPage />}
+            />
+
+          {/* jobs Layout nested route */}
+
+          <Route path="jobs" element={<JobsLayout />}>
+            <Route index element={<Jobs />} loader={loader} />
+          </Route>
       </Route>
   ))
   return(

@@ -13,6 +13,7 @@ export default function Navbar(){
                         <NavLink to={"/"}><li>Home</li></NavLink>
                         <NavLink to={"/about"}><li>About</li></NavLink>
                         <NavLink to={"/services"}><li>Services</li></NavLink>
+                        <NavLink to={"/jobs"}><li>Jobs</li></NavLink>
                     </ul>
                 </div>
             </div>
